@@ -8,6 +8,7 @@
 namespace Pirastru\FormBuilderBundle\Block;
 
 use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\Form\Type\ImmutableArrayType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
@@ -52,7 +53,7 @@ class FormBuilderBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add('settings', 'sonata_type_immutable_array', array(
+        $formMapper->add('settings', ImmutableArrayType::class, array(
             'keys' => array(
                 array($this->getFieldFormBuilder($formMapper), null, array()),
             ),
