@@ -30,7 +30,7 @@ class FormBuilderBlockService extends BaseBlockService
      * @param EngineInterface    $templating
      * @param ContainerInterface $container
      */
-    public function __construct($name, EngineInterface $templating, ContainerInterface $container)
+    public function __construct($name, ?EngineInterface $templating, ContainerInterface $container)
     {
         parent::__construct($name, $templating);
 
