@@ -1,6 +1,6 @@
 {# Overwrite checkbox widget so you can implement url from privacy check (added |raw) #}
 {% block checkbox_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if label is defined and label is not same as(false) and label is empty %}
             {% set label = name|humanize %}
         {% endif %}
@@ -25,5 +25,5 @@
                 {{ block('form_message') }}
             {% endif %}
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock checkbox_widget %}
