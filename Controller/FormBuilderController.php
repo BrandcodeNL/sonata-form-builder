@@ -11,8 +11,8 @@ use Pirastru\FormBuilderBundle\Entity\SubmittedValue;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Routing\Annotation\Route;;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Pirastru\FormBuilderBundle\FormFactory\FormBuilderFactory;
 use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 
