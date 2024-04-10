@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "sonata-project/block-bundle": "~3.2",
+        "sonata-project/block-bundle": "~3.2 || ^4.0",
         "gregwar/captcha-bundle": "^2.0"
     },
     "autoload": {
