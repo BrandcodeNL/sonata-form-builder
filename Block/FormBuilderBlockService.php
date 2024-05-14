@@ -16,12 +16,12 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\Form\Validator\ErrorElement;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
-use Sonata\BlockBundle\Block\BaseBlockService;
+use Sonata\BlockBundle\Block\Service\AbstractBlockService;
 
 /**
  * @author     Andrea Pirastru
  */
-class FormBuilderBlockService extends BaseBlockService
+class FormBuilderBlockService extends AbstractBlockService
 {
     protected $formBuilderAdmin;
 
@@ -40,7 +40,7 @@ class FormBuilderBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function configureSettings(OptionsResolver $resolver)
+    public function configureSettings(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
             'template' => 'PirastruFormBuilderBundle:Block:block_form_builder.html.twig',
@@ -51,7 +51,7 @@ class FormBuilderBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+    public function configureEditForm( $formMapper, BlockInterface $block)
     {
         $formMapper->add('settings', ImmutableArrayType::class, array(
             'keys' => array(
@@ -100,14 +100,14 @@ class FormBuilderBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+    public function validate(ErrorElement $errorElement, BlockInterface $block)
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function execute(BlockContextInterface $blockContext, Response $response = null)
+    public function execute(BlockContextInterface $blockContext, Response $response = null): Response
     {
         $formBuilderId = $blockContext->getBlock()->getSetting('formBuilderId');
         $formBuilder = $this->container->get('doctrine')
@@ -152,7 +152,7 @@ class FormBuilderBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function load(BlockInterface $block)
+    public function load(BlockInterface $block): void
     {
         $formBuilderId = $block->getSetting('formBuilderId');
 

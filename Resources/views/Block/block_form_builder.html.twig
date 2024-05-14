@@ -7,7 +7,7 @@
     {% if formBuilderId is defined and formBuilderId is not null %}
 
         {% if form is defined %}
-            {% form_theme form "PirastruFormBuilderBundle:Block:_form_theme.html.twig" %}
+            {% form_theme form "@PirastruFormBuilder/Block/_form_theme.html.twig" %}
             <form method="POST" class="form-horizontal" {{ form_start(form) }}>
 
                 {{ form_widget(form) }}

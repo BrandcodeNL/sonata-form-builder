@@ -27,7 +27,7 @@ class FormBuilderAdmin extends AbstractAdmin
     /**
      * @param DatagridMapper $datagridMapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
             ->add('recipient')
@@ -38,7 +38,7 @@ class FormBuilderAdmin extends AbstractAdmin
     /**
      * @param ListMapper $listMapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
             ->addIdentifier('name')
@@ -49,16 +49,16 @@ class FormBuilderAdmin extends AbstractAdmin
     /**
      * @param FormMapper $formMapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
             ->add('json', HiddenType::class)
             ->add('name', TextType::class)
             ->add('subject', TextType::class, [
-                'sonata_help' => "You can use &lt;Internal Key&gt; to add variables to your subject. Example: This email is from &lt;Name&gt;"
+                'help' => "You can use &lt;Internal Key&gt; to add variables to your subject. Example: This email is from &lt;Name&gt;"
             ])
             ->add('reply_to', TextType::class ,[
-                'sonata_help' => "You can use &lt;Internal Key&gt; to add variables to your reply to field. Example: &lt;Email&gt;",
+                'help' => "You can use &lt;Internal Key&gt; to add variables to your reply to field. Example: &lt;Email&gt;",
                 'required' => false,
             ])
             ->add('recipient', CollectionType::class, array(
@@ -102,7 +102,7 @@ class FormBuilderAdmin extends AbstractAdmin
     {
         switch ($name) {
             case 'edit':
-                return 'PirastruFormBuilderBundle:CRUD:formbuilder.html.twig';
+                return '@PirastruFormBuilder/CRUD/formbuilder.html.twig';
                 break;
             default:
                 return parent::getTemplate($name);
@@ -113,7 +113,7 @@ class FormBuilderAdmin extends AbstractAdmin
     /**
      * @param ShowMapper $showMapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $showMapper): void
     {
         $showMapper
             ->add('name')
@@ -126,7 +126,7 @@ class FormBuilderAdmin extends AbstractAdmin
      * @param ErrorElement $errorElement
      * @param mixed $object
      */
-    public function validate(ErrorElement $errorElement, $object)
+    public function validate(ErrorElement $errorElement, $object): void
     {
         $errorElement
             ->with('name')

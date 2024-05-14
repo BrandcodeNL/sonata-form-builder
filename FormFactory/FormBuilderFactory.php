@@ -40,7 +40,7 @@ class FormBuilderFactory
             'required' => $elem->fields->required->value,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
             'constraints' => array(
                 new Email(),
@@ -63,7 +63,7 @@ class FormBuilderFactory
             'required' => $elem->fields->required->value,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
             'widget' => 'single_text',
             'format' => 'dd-MM-yyyy'
@@ -85,7 +85,7 @@ class FormBuilderFactory
             'required' => $elem->fields->required->value,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
         ));
 
@@ -105,7 +105,7 @@ class FormBuilderFactory
             'required' => $elem->fields->required->value,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
         ));
 
@@ -125,7 +125,7 @@ class FormBuilderFactory
             'required' => $elem->fields->required->value,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
         ));
 
@@ -145,7 +145,7 @@ class FormBuilderFactory
             'required' => false,
             'label' => $elem->fields->label->value,
             'label_attr' => array('class' => 'indent'),
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
             'attr' => array_filter($attr),
         ));
 
@@ -357,7 +357,7 @@ class FormBuilderFactory
             'label_attr' => [
                 'style' => 'display:none;',
             ],
-            'sonata_help' => $elem->fields->helptext->value,
+            'help' => $elem->fields->helptext->value,
         ));
 
         return array('name' => 'captcha_'.$key, 'size' => 'col-sm-6');
