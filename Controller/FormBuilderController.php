@@ -207,7 +207,8 @@ class FormBuilderController extends AbstractController
          * start processing each json object elements
          * each element is a form field like 'Text Input'
          */
-        $obj_form = json_decode($formbuild->getJson());
+        $obj_form = $formbuild->getJson();
+        
         foreach ($obj_form as $key => $elem) {
             if ($elem->typefield == 'formname') {
                 continue;
