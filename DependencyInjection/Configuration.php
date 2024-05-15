@@ -15,7 +15,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('pirastru_formbuilder');
         $rootNode = $treeBuilder->getRootNode();
