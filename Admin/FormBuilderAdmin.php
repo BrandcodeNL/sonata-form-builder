@@ -18,10 +18,10 @@ class FormBuilderAdmin extends AbstractAdmin
 {
     protected $container;
 
-    public function __construct($code, $class, $baseControllerName, ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        parent::__construct($code, $class, $baseControllerName);
+        parent::__construct();
     }
 
     /**
