@@ -169,7 +169,7 @@ class FormBuilderController extends AbstractController
                 }
             }
 
-            $html = $this->renderView('PirastruFormBuilderBundle:Mail:resume.html.twig', [
+            $html = $this->renderView('@PirastruFormBuilder/Mail/resume.html.twig', [
                 'data' => $data,
                 'name' => $formBuilder->getName()
             ]);

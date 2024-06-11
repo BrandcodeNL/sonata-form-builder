@@ -14,9 +14,9 @@
 {% block sonata_javascript_config %}
     {{ parent() }}
      {#Turn off confirm exit if turned on since it fails with JS library#}
-    {% if sonata_admin.adminPool.getOption('confirm_exit') %}
-       
-    {% endif %}
+{#    {% if admin.pool.getOption('confirm_exit') %}#}
+
+{#    {% endif %}#}
 {% endblock %}
 
 {% block form %}

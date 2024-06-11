@@ -13,6 +13,8 @@ services:
                 model_class: Pirastru\FormBuilderBundle\Entity\FormBuilder,
                 controller: Pirastru\FormBuilderBundle\Controller\FormBuilderAdminController
             }
+        calls:
+          - [ setTemplates, [{ edit: '@@PirastruFormBuilder/CRUD/formbuilder.html.twig' }]]
 
     pirastru_form_builder.submitted_value_admin:
         class: Pirastru\FormBuilderBundle\Admin\SubmittedValueAdmin
@@ -50,3 +52,12 @@ services:
         class: Pirastru\FormBuilderBundle\Controller\FormBuilderController
         calls:
             - [setContainer, ["@service_container"]]
+        tags:
+            - {name: "controller.service_arguments"}
+
+    pirastru_form_builder.admin.controller:
+        class: Pirastru\FormBuilderBundle\Controller\FormBuilderAdminController
+        calls:
+            - [setContainer, ["@service_container"]]
+        tags:
+            - {name: "controller.service_arguments"}

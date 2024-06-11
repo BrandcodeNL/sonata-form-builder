@@ -41,7 +41,11 @@ class FormBuilderAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->addIdentifier('name')
+            ->addIdentifier('name', null, [
+                'route' => [
+                    'name' => 'edit',
+                ],
+            ])
             ->add('recipient')
         ;
     }
@@ -98,18 +102,6 @@ class FormBuilderAdmin extends AbstractAdmin
         ;
     }
 
-    public function getTemplate($name)
-    {
-        switch ($name) {
-            case 'edit':
-                return '@PirastruFormBuilder/CRUD/formbuilder.html.twig';
-                break;
-            default:
-                return parent::getTemplate($name);
-                break;
-        }
-    }
-
     /**
      * @param ShowMapper $showMapper
      */
@@ -118,7 +110,7 @@ class FormBuilderAdmin extends AbstractAdmin
         $showMapper
             ->add('name')
             ->add('recipient')
-            ->add('submit', null, array('template' => 'PirastruFormBuilderBundle:CRUD:table_show_field.html.twig'))
+            ->add('submit', null, array('template' => '@PirastruFormBuilder/CRUD/table_show_field.html.twig'))
         ;
     }
 

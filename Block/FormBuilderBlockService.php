@@ -43,7 +43,7 @@ class FormBuilderBlockService extends AbstractBlockService
     public function configureSettings(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(array(
-            'template' => 'PirastruFormBuilderBundle:Block:block_form_builder.html.twig',
+            'template' => '@PirastruFormBuilder/Block/block_form_builder.html.twig',
             'formBuilderId' => null,
         ));
     }
