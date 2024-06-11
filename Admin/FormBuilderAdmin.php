@@ -56,7 +56,9 @@ class FormBuilderAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('json', HiddenType::class)
+            ->add('json', HiddenType::class, [
+                'property_path' => 'jsonRaw',
+            ])
             ->add('name', TextType::class)
             ->add('subject', TextType::class, [
                 'help' => "You can use &lt;Internal Key&gt; to add variables to your subject. Example: This email is from &lt;Name&gt;"
