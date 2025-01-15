@@ -27,6 +27,7 @@ define([
       var that = this;
       //popover
       $(".popover").remove();
+      this.$el.popover({ sanitize: false});
       this.$el.popover("show");
       $(".popover #save").on("click", this.saveHandler(that));
       $(".popover #cancel").on("click", this.cancelHandler(that));
